@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Me Form</title>
+  </head>
+  <body>
+    <section class="content">
+      <h1 class="content-heading">Send Me A Message</h1>
+      <p class="content-lede">
+        Fill out the contact form below to get in touch with me.
+      </p>
+      <form class="content-form">
+        <div id="form-input-group">
+          <input class="radio" id="prefix-mx" type="radio" name="prefix" value="Mx" />
+          <label class="radio-label" for="prefix-mx">Mx.</label>
+          <input class="radio" id="prefix-mr" type="radio" name="prefix" value="Mr" />
+          <label class="radio-label" for="prefix-mr">Mr.</label>
+          <input class="radio" id="prefix-mrs" type="radio" name="prefix" value="Mrs" />
+          <label class="radio-label" for="prefix-mrs">Mrs.</label>
+          <input class="radio" id="prefix-ms" type="radio" name="prefix" value="Ms" />
+          <label class="radio-label" for="prefix-ms">Ms.</label>
+        </div>
+        <div id="form-input-group">
+          <label class="form-label" for="name">Full Name:</label> <br />
+          <input class="input-text" id="name" name="name" /> <br />
+        </div>
+        <div class="form-input-group">
+          <label class="form-label" for="email">Email Address:</label> <br />
+          <input class="input-email" id="email" type="email" name="email" /> <br />
+        </div>
+        <div class="form-input-group">
+          <label class="form-label" for="subject">How can I help you?</label>
+          <br />
+          <select class="input-select" id="subject" name="subject">
+            <option value="general">General Inquiry</option>
+            <option value="travel">Travel</option>
+            <option value="programming">Programming</option>
+            <option value="programming">Fashion</option>
+          </select>
+          <br />
+        </div>
+        <div class="form-input-group">
+          <label class="form-label" for="message">Enter a Message</label>
+          <br />
+          <textarea class="form-textarea" id="message" name="message" rows="6" cols="65"></textarea>
+          <br />
+        </div>
+        <div class="form-input-group">
+          <p class="checkbox-group">Best time to contact you:</p>
+          <input class="checkbox" id="time-morning" type="checkbox" name="time" value="morning" />
+          <label class="checkbox-label" for="time-morning">Morning</label>
+          <input class="checkbox" id="time-afternoon" type="checkbox" name="time" value="afternoon" />
+          <label class="checkbox-label" for="time-afternoon">Afternoon</label>
+          <input class="checkbox" id="time-evening" type="checkbox" name="time" value="evening" />
+          <label class="checkbox-label" for="time-evening">Evening</label> <br />
+        </div>
+        <button class="form-button" type="submit">Send it!</button>
+      </form>
+    </section>
+    <div class="results">
+      <h2 class="results-heading">Form Data</h2>
+      <pre class="results-wrapper">
+        <code class="results-display"></code>
+      </pre>
+    </div>
+    <!-- JavaScript at the bottom of the html file allows the doc to load w/o having to wait for external JS to load first (if in document <head> better is JS needs to be available as page is loading) -->
+    <script src="contact-form.js"></script>
+  </body>
+</html>
