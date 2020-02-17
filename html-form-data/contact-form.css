@@ -1,0 +1,83 @@
+body {
+  background: #f9fdfe;
+  color: #686a69;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 150;
+  border-style: solid;
+  border-color: #2a2f2c;
+  border-width: 0.5px;
+  width: 60%;
+  padding: 50px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h1,h2 {
+  color: #2a2f2c;
+  font-family: 'lato', sans-serif;
+  font-weight: 300;
+  font-size: 125%;
+}
+
+.content-lede {
+  font-size: 85%;
+  margin-bottom: 5px;
+}
+
+.content-form {
+  border-bottom: 1px solid #cdcfcf;
+  border-top: 1px solid #cdcfcf;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.checkbox-label, .radio-label {
+  width: auto;
+  font-size: 15px;
+}
+
+.form-label {
+  font-size: 75%;
+}
+
+.form-input-group {
+  margin-top: 10px;
+}
+
+.input-text, .input-email, .input-select{
+  width: 100%;
+  height: 25px;
+  font-size: 16px;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 150px;
+  border: 1px solid #cdcfcf
+}
+
+.checkbox, .checkbox-group{
+  font-size: 75%;
+}
+
+.form-button {
+  background-color: #686a69;
+  border: 0;
+  font-family: 'lato', sans-serif;
+  font-size: 100%;
+  font-weight: 100;
+  color: #f9fdfe;
+  line-height: 1.5;
+  margin: 8px;
+  margin-top: 30px;
+  display: block;
+  width: 110px;
+}
+
+.results-wrapper {
+  border: 1px solid #cdcfcf;
+  font-size: 15px;
+}
+
