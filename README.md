@@ -5,4 +5,4 @@ This repository comprises js code snippets / projects created to put into practi
 
 ## Snippets
 Handling HTML Forms: </br>
-create a basic "Contact Me" form in HTML, using JS to read form, extract input data and ouput a string object of form data.
+Create a basic "Contact Me" form in HTML, using JS to read form, extract input data and ouput a string object of form data.
