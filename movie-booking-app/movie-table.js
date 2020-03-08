@@ -31,12 +31,13 @@ const movies = [
   }
 ]
 //grab table html element
-let movieTable = document.querySelector('#movies')
+let movieTable = document.querySelector('#movie-table')
 
 //take first movie and create table header row off of obj keys
 //append first row to table
 let movieHeaders = Object.keys(movies[0])
 let tableHead = document.createElement('thead')
+tableHead.id = 'table-head'
 let headRow = document.createElement('tr')
 movieHeaders.forEach(header => {
   let colTitle = document.createElement('th')
@@ -59,6 +60,7 @@ function insertRow(newObj) {
 }
 
 let tableBody = document.createElement('tbody')
+tableBody.id = 'table-body'
 movies.forEach(movie => {
   tableBody.appendChild(insertRow(movie))
 })
