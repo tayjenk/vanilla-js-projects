@@ -1,4 +1,4 @@
-# JavaScript Code Snippets
+# Vanilla JavaScript Projects
 
 ## Background
 This repository comprises js code snippets / projects created to put into practice a deeper understanding of vanilla JavaScript basics.
