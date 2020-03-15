@@ -1,3 +1,16 @@
+<!-- Points to Note:
+ - HTML base format:
+  <!DOCTYPE html>
+  <html>
+    <head>
+      title and css scripts
+    </head>
+    <body>
+      html code & js scrips
+    </body>
+  </html> -->
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,7 +19,18 @@
   </head>
   <body>
     <h1>View All Our Movies</h1>
-    <table id='movie-table'></table>
+    <table id='movie-table'>
+      <thead id='table-head'></thead>
+      <tbody id='table-body'></tbody>
+    </table>
+    <label for='sort'>Sort By:</label>
+    <br />
+    <select id='sort'>
+      <option value='Name'>Movies: A - Z (default)</option>
+      <option value='Genre'>Genre</option>
+      <option value='Release Date'>Release Date</option>
+      <option value='Rating'>Rating</option>
+    </select>
     <script src="./movie-table.js"></script>
   </body>
 </html>
