@@ -1,8 +1,10 @@
 # Vanilla JavaScript Projects
 
 ## Background
-This repository comprises js code snippets / projects created to put into practice a deeper understanding of vanilla JavaScript basics.
+This repository comprises js code snippets / mini-projects created to put into practice a deeper understanding of vanilla JavaScript basics.
 
-## Snippets
+## Projects
+
 Handling HTML Forms: </br>
-Create a basic "Contact Me" form in HTML, using JS to read form, extract input data and ouput a string object of form data.
+`HTML, JavaScript, CSS`
+Created a basic "Contact Me" form in HTML, using JS functionality to extract input data and ouput a string object of form data.
