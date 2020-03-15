@@ -36,7 +36,8 @@ th {
   margin: 15px;
 }
 
-#sort {
+select {
   height: 30;
+  text-align-last: center;
 }
 
