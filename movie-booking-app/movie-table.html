@@ -10,28 +10,28 @@
     </body>
   </html> -->
 
-
 <!DOCTYPE html>
 <html>
   <head>
     <title>View Movies</title>
-    <link rel="stylesheet" type="text/css" href="movie-table.css"/>
+    <link rel="stylesheet" type="text/css" href="movie-table.css" />
   </head>
   <body>
     <h1>View All Our Movies</h1>
-    <table id='movie-table'>
-      <thead id='table-head'></thead>
-      <tbody id='table-body'></tbody>
+    <table id="movie-table">
+      <thead id="table-head"></thead>
+      <tbody id="table-body"></tbody>
     </table>
-    <label for='sort'>Sort By:</label>
-    <br />
-    <select id='sort'>
-      <option value='Name'>Movies: A - Z (default)</option>
-      <option value='Genre'>Genre</option>
-      <option value='Release Date'>Release Date</option>
-      <option value='Rating'>Rating</option>
-    </select>
-    <script src="./movie-table.js"></script>
+    <div id='dropdown'>
+      <label for="sort">Sort By:</label>
+      <br />
+      <select id="sort">
+        <option value="Name">Movies: A - Z (default)</option>
+        <option value="Genre">Genre</option>
+        <option value="Release Date">Release Date</option>
+        <option value="Rating">Rating</option>
+      </select>
+      <script src="./movie-table.js"></script>
+    </div>
   </body>
 </html>
-
