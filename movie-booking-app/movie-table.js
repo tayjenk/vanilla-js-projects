@@ -62,6 +62,7 @@ function createTableHeader(moviesArray) {
     colTitle.innerText = header
     headRow.appendChild(colTitle)
   })
+  headRow.appendChild(document.createElement("th"))
   tableHead.appendChild(headRow)
   return tableHead
 }
@@ -77,7 +78,21 @@ function insertRow(newObj) {
     newCell.innerText = newObj[key]
     newRow.appendChild(newCell)
   }
+  const removeWrapper = document.createElement("td")
+  const removeButton = document.createElement('button')
+  removeButton.type = 'button'
+  removeButton.innerText = 'x'
+  removeButton.addEventListener('click', () => removeRow(event.target.parentElement.parentElement))
+  removeWrapper.appendChild(removeButton)
+  newRow.appendChild(removeWrapper)
   return newRow
+}
+
+function removeRow(rowElement) {
+  const row = rowElement.firstElementChild.textContent
+  console.log(row)
+  const filteredMovies = movies.filter(movie => movie.Name != row)
+  return createTable(filteredMovies)
 }
 
 //create table with data using XMLHttpRequest object
