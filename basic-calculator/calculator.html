@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+    /* --------------------
+     Add your styling here
+     -------------------- */
+    </style>
+</head>
+<body>
+<div class="calculator">
+  <form>
+    <input type='text' id='display' name='display-box' placeholder='0' value=''/>
+  </form>
+  <button class='input' name='1' type='button' value='1'> 1 </button>
+  <button class='input' name='2' type='button' value='2'> 2 </button>
+  <button class='input' name='3' type='button' value='3'> 3 </button>
+  <button class='operation' name='add' type='button' value='+'> + </button>
+  </br>
+  <button class='input' name='4' type='button' value='4'> 4 </button>
+  <button class='input' name='5' type='button' value='5'> 5 </button>
+  <button class='input' name='6' type='button' value='6'> 6 </button>
+  <button class='operation' name='subtract' type='button' value='-'> - </button>
+  </br>
+  <button class='input' name='7' type='button' value='7'> 7 </button>
+  <button class='input' name='8' type='button' value='8'> 8 </button>
+  <button class='input' name='9' type='button' value='9'> 9 </button>
+  <button class='operation' name='multiply' type='button' value='*'> x </button>
+  </br>
+  <button class='input' name='0' type='button' value='0'> 0 </button>
+  <button class='input' name='decimal' type='button' value='.'> . </button>
+  <button class='operation' name='delete' type='button' value=''> del </button>
+  <button class='operation' name='divide' type='button' value='/'> / </button>
+  </br>
+  <button class='operation' name='reset' type='button' value='0'> reset </button>
+  <button class='calculate' name='equals' type='button' onClick='calculate()'> = </button>
+</div>
+<script>
+  //   function addInput(event) {
+  //   if(event.target.className === 'input') display.value += event.target.value
+  //   if(event.target.className === 'operation') {
+  //     operation = event.target.value
+  //     console.log({operation})
+  //     if(!displayHold) displayHold = parseInt(display.value)
+  //     else {
+  //       switch(operation) {
+  //         case '+':
+  //           displayHold += parseInt(display.value)
+  //           break
+  //         case '-':
+  //           console.log(displayHold - parseInt(display.value))
+  //       }
+  //     }
+  //     display.value = ''
+  //   }
+  // console.log({displayHold})
+  // }
+    const addInput = event => {
+      const display = document.querySelector('#display')
+      if(event.target.name === 'decimal') event.target.disabled = 'disabled'
+      display.value += event.target.value
+      console.log(display.value)
+    }
+
+    const displayInputs = document.querySelectorAll('.input')
+    console.log(displayInputs)
+    Array.from(displayInputs).forEach(input => input.addEventListener('click', addInput))
+</script>
+</body>
+</html>
+
+<!----------
+layout:
+------------------- (main)
+|   result box  (form & output)
+|
+|    1. 2. 3 +  (buttons)
+|    4. 5. 6 -  (buttons)
+|    7. 8. 9 x  (buttons)
+|    =. res  .  (buttons)
+|
+--------------------
+functionality:
+clicking on any numerical buttons will add the corresponding number into the output
+
+
+--------->
