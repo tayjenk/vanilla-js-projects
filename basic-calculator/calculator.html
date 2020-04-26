@@ -4,23 +4,55 @@
     <meta charset="UTF-8">
     <title>Calculator</title>
     <style>
-    /* --------------------
-     Add your styling here
-     -------------------- */
+      /* style here */
+      body {
+        width: 300px;
+        margin: 3% auto;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+      }
+      .calculator {
+        padding: 20px;
+        border:1px solid #ddd;
+        border-radius: 1px;
+      }
+      #display {
+        border: 1px solid #ddd;
+        border-radius: 1px;
+        height: 30px;
+        text-align: right;
+        padding-right: 15px;
+        font-size: 1.5rem;
+        color: gray;
+      }
+      .operator-btns button{
+        width: 45px;
+        height: 30px;
+        border-radius: 5px;
+        margin: 10px 1px 1px 5.5px;
+        cursor: pointer;
+        background-color: #ddd;
+      }
+      .operator-btns button:hover {
+        /* background-color: #ddd; */
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+        border-color: #aaa;
+      }
     </style>
 </head>
 <body>
 <div class="calculator">
-  <form>
+  <div class='display-box'>
     <input type='text' id='display' placeholder='0' value='' />
-  </form>
-  <section class='operator-btns'>
+  </div>
+  <div class='operator-btns'>
     <button class='operation' name='add' type='button' value='+'> + </button>
     <button class='operation' name='subtract' type='button' value='-'> - </button>
     <button class='operation' name='multiply' type='button' value='*'> x </button>
     <button class='operation' name='divide' type='button' value='/'> ÷ </button>
-  </section>
-  <section class='number-btns'>
+  </div>
+  <div class='number-btns'>
     <button class='input' name='7' type='button' value='7'> 7 </button>
     <button class='input' name='8' type='button' value='8'> 8 </button>
     <button class='input' name='9' type='button' value='9'> 9 </button>
@@ -36,13 +68,13 @@
     <button class='input' name='0' type='button' value='0'> 0 </button>
     <button class='input' id='decimal' name='decimal' type='button' value='.'> . </button>
     <button class='operation' name='remove' type='button' value=''> DEL </button>
-  </section>
-  <section class='equal-btn'>
+  </div>
+  <div class='equal-btn'>
     <button class='operation' name='equals' type='button' > = </button>
-  </section>
-  <section class='clear-btn'>
+  </div>
+  <div class='clear-btn'>
     <button class='operation' name='clear' type='button' value='0'> AC </button>
-  </section>
+  </div>
 </div>
 <script>
   class Calculator {
@@ -94,7 +126,7 @@
 
     clear() {
       this.inputs = []
-      this.display = ''
+      this.display.value = ''
     }
   }
     const display = document.querySelector('#display')
