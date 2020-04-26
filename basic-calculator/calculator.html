@@ -14,28 +14,35 @@
   <form>
     <input type='text' id='display' placeholder='0' value='' />
   </form>
-  <button class='input' name='1' type='button' value='1'> 1 </button>
-  <button class='input' name='2' type='button' value='2'> 2 </button>
-  <button class='input' name='3' type='button' value='3'> 3 </button>
-  <button class='operation' name='add' type='button' value='+'> + </button>
+  <section class='operator-btns'>
+    <button class='operation' name='add' type='button' value='+'> + </button>
+    <button class='operation' name='subtract' type='button' value='-'> - </button>
+    <button class='operation' name='multiply' type='button' value='*'> x </button>
+    <button class='operation' name='divide' type='button' value='/'> ÷ </button>
+  </section>
+  <section class='number-btns'>
+    <button class='input' name='7' type='button' value='7'> 7 </button>
+    <button class='input' name='8' type='button' value='8'> 8 </button>
+    <button class='input' name='9' type='button' value='9'> 9 </button>
   </br>
-  <button class='input' name='4' type='button' value='4'> 4 </button>
-  <button class='input' name='5' type='button' value='5'> 5 </button>
-  <button class='input' name='6' type='button' value='6'> 6 </button>
-  <button class='operation' name='subtract' type='button' value='-'> - </button>
+    <button class='input' name='4' type='button' value='4'> 4 </button>
+    <button class='input' name='5' type='button' value='5'> 5 </button>
+    <button class='input' name='6' type='button' value='6'> 6 </button>
   </br>
-  <button class='input' name='7' type='button' value='7'> 7 </button>
-  <button class='input' name='8' type='button' value='8'> 8 </button>
-  <button class='input' name='9' type='button' value='9'> 9 </button>
-  <button class='operation' name='multiply' type='button' value='*'> x </button>
+    <button class='input' name='1' type='button' value='1'> 1 </button>
+    <button class='input' name='2' type='button' value='2'> 2 </button>
+    <button class='input' name='3' type='button' value='3'> 3 </button>
   </br>
-  <button class='input' name='0' type='button' value='0'> 0 </button>
-  <button class='input' id='decimal' name='decimal' type='button' value='.'> . </button>
-  <button class='operation' name='remove' type='button' value=''> del </button>
-  <button class='operation' name='divide' type='button' value='/'> / </button>
-  </br>
-  <button class='operation' name='clear' type='button' value='0'> clear </button>
-  <button class='operation' name='equals' type='button' > = </button>
+    <button class='input' name='0' type='button' value='0'> 0 </button>
+    <button class='input' id='decimal' name='decimal' type='button' value='.'> . </button>
+    <button class='operation' name='remove' type='button' value=''> DEL </button>
+  </section>
+  <section class='equal-btn'>
+    <button class='operation' name='equals' type='button' > = </button>
+  </section>
+  <section class='clear-btn'>
+    <button class='operation' name='clear' type='button' value='0'> AC </button>
+  </section>
 </div>
 <script>
   class Calculator {
