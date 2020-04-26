@@ -12,7 +12,7 @@
 <body>
 <div class="calculator">
   <form>
-    <input type='text' id='display' name='display-box' placeholder='0' value=''/>
+    <input type='text' id='display' placeholder='0' value='' />
   </form>
   <button class='input' name='1' type='button' value='1'> 1 </button>
   <button class='input' name='2' type='button' value='2'> 2 </button>
@@ -30,43 +30,61 @@
   <button class='operation' name='multiply' type='button' value='*'> x </button>
   </br>
   <button class='input' name='0' type='button' value='0'> 0 </button>
-  <button class='input' name='decimal' type='button' value='.'> . </button>
+  <button class='input' id='decimal' name='decimal' type='button' value='.'> . </button>
   <button class='operation' name='delete' type='button' value=''> del </button>
   <button class='operation' name='divide' type='button' value='/'> / </button>
   </br>
   <button class='operation' name='reset' type='button' value='0'> reset </button>
-  <button class='calculate' name='equals' type='button' onClick='calculate()'> = </button>
+  <button class='operation' name='equals' type='button' > = </button>
 </div>
 <script>
-  //   function addInput(event) {
-  //   if(event.target.className === 'input') display.value += event.target.value
-  //   if(event.target.className === 'operation') {
-  //     operation = event.target.value
-  //     console.log({operation})
-  //     if(!displayHold) displayHold = parseInt(display.value)
-  //     else {
-  //       switch(operation) {
-  //         case '+':
-  //           displayHold += parseInt(display.value)
-  //           break
-  //         case '-':
-  //           console.log(displayHold - parseInt(display.value))
-  //       }
-  //     }
-  //     display.value = ''
-  //   }
-  // console.log({displayHold})
-  // }
-    const addInput = event => {
-      const display = document.querySelector('#display')
-      if(event.target.name === 'decimal') event.target.disabled = 'disabled'
-      display.value += event.target.value
-      console.log(display.value)
+  class Calculator {
+    constructor() {
+      this.inputs = []
+      this.operations = {
+        '+' : function(a,b) {return a + b},
+        '-' : function(a,b) {return a - b},
+        '*' : function(a,b) {return a*b},
+        '/' : function(a,b) {return b / a}
+      }
+      this.performOperation = this.performOperation.bind(this)
     }
 
-    const displayInputs = document.querySelectorAll('.input')
-    console.log(displayInputs)
-    Array.from(displayInputs).forEach(input => input.addEventListener('click', addInput))
+    addInput(event) {
+      if(event.target.name === 'decimal') event.target.disabled = 'disabled'
+      display.value += event.target.value
+    }
+
+    performOperation(event) {
+      const decimal = document.querySelector('#decimal')
+      decimal.removeAttribute('disabled')
+
+      if(event.target.name === 'equals') {
+        const currDisplay = parseFloat(display.value)
+        let currentOperation = null
+        const total = this.inputs.reduce((totalValue, el) => {
+          if(typeof el !== 'number') {
+            currentOperation = this.operations[el]
+            return totalValue
+          } else {
+            return currentOperation(totalValue, el)
+          }
+        }, currDisplay)
+        this.inputs = []
+        display.value = total
+      } else {
+        this.inputs.push(event.target.value, parseFloat(display.value))
+        display.value = ''
+      }
+      console.log(this.inputs)
+    }
+  }
+    const display = document.querySelector('#display')
+    const inputs = document.querySelectorAll('.input')
+    const operations = document.querySelectorAll('.operation')
+    const calculator = new Calculator()
+    Array.from(operations).forEach(operation => operation.addEventListener('click', calculator.performOperation))
+    Array.from(inputs).forEach(input => input.addEventListener('click', calculator.addInput))
 </script>
 </body>
 </html>
