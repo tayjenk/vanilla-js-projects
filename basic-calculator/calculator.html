@@ -31,28 +31,31 @@
   </br>
   <button class='input' name='0' type='button' value='0'> 0 </button>
   <button class='input' id='decimal' name='decimal' type='button' value='.'> . </button>
-  <button class='operation' name='delete' type='button' value=''> del </button>
+  <button class='operation' name='remove' type='button' value=''> del </button>
   <button class='operation' name='divide' type='button' value='/'> / </button>
   </br>
-  <button class='operation' name='reset' type='button' value='0'> reset </button>
+  <button class='operation' name='clear' type='button' value='0'> clear </button>
   <button class='operation' name='equals' type='button' > = </button>
 </div>
 <script>
   class Calculator {
-    constructor() {
+    constructor(display) {
+      this.display = display
       this.inputs = []
       this.operations = {
         '+' : function(a,b) {return a + b},
-        '-' : function(a,b) {return a - b},
+        '-' : function(a,b) {return b - a},
         '*' : function(a,b) {return a*b},
         '/' : function(a,b) {return b / a}
       }
       this.performOperation = this.performOperation.bind(this)
+      this.addInput = this.addInput.bind(this)
+      this.clear = this.clear.bind(this)
     }
 
     addInput(event) {
       if(event.target.name === 'decimal') event.target.disabled = 'disabled'
-      display.value += event.target.value
+      this.display.value += event.target.value
     }
 
     performOperation(event) {
@@ -60,7 +63,7 @@
       decimal.removeAttribute('disabled')
 
       if(event.target.name === 'equals') {
-        const currDisplay = parseFloat(display.value)
+        const currDisplay = parseFloat(this.display.value)
         let currentOperation = null
         const total = this.inputs.reduce((totalValue, el) => {
           if(typeof el !== 'number') {
@@ -71,20 +74,34 @@
           }
         }, currDisplay)
         this.inputs = []
-        display.value = total
+        this.display.value = total
       } else {
-        this.inputs.push(event.target.value, parseFloat(display.value))
-        display.value = ''
+        this.inputs.push(event.target.value, parseFloat(this.display.value))
+        this.display.value = ''
       }
-      console.log(this.inputs)
+    }
+
+    remove() {
+      this.display.value = this.display.value.slice(0, this.display.value.length-1)
+    }
+
+    clear() {
+      this.inputs = []
+      this.display = ''
     }
   }
     const display = document.querySelector('#display')
+    const calculator = new Calculator(display)
+
     const inputs = document.querySelectorAll('.input')
-    const operations = document.querySelectorAll('.operation')
-    const calculator = new Calculator()
-    Array.from(operations).forEach(operation => operation.addEventListener('click', calculator.performOperation))
     Array.from(inputs).forEach(input => input.addEventListener('click', calculator.addInput))
+
+    const operations = document.querySelectorAll('.operation')
+    Array.from(operations).forEach(operation => {
+      if (operation.name === 'remove') operation.addEventListener('click', calculator.remove)
+      if (operation.name === 'clear') operation.addEventListener('click', calculator.clear)
+      else operation.addEventListener('click', calculator.performOperation)
+    })
 </script>
 </body>
 </html>
