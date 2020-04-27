@@ -1,0 +1,74 @@
+body {
+  width: 300px;
+  margin: 3% auto;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 5px;
+}
+.calculator {
+  padding: 20px;
+  border:1px solid #ddd;
+  border-radius: 1px;
+}
+#display {
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  height: 30px;
+  text-align: right;
+  padding-right: 15px;
+  font-size: 1.5rem;
+  color: gray;
+}
+.operator-btns button{
+  width: 45px;
+  height: 30px;
+  border-radius: 5px;
+  margin: 10px 1px 1px 5.5px;
+  cursor: pointer;
+  background-color: #ddd;
+}
+.operator-btns button:hover {
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-color: #aaa;
+  font-weight: bold;
+}
+.number-btns {
+  display: inline-block;
+}
+.number-btns button {
+  width: 45px;
+  height: 25px;
+  border-radius: 5px;
+  margin: 0px 4px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+.number-btns button:hover {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+.equal-btn {
+  display: inline-block;
+}
+.equal-btn button{
+  width: 50px;
+  vertical-align: bottom;
+  cursor: pointer;
+  padding: 57px 10px;
+  margin: 50 6px 10px 0;
+  border-radius: 5px;
+  background-color: #4d90fe;
+}
+.clear-btn {
+  display: inline-block;
+  margin-left: 70px;
+}
+.clear-btn button {
+  width: 45px;
+  height: 25px;
+  border-radius: 5px;
+}
+.clear-btn button:hover {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
