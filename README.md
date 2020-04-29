@@ -13,3 +13,7 @@ Created a basic "Contact Me" form in HTML, using JS functionality to extract inp
 Basic Calulator: </br>
 Simple calculator that supports add, delete, multiply, and divide operations. Calculator supports decimals and can reset current state.
 
+Movie Table Display: </br>
+Features a basic HTML table created through JavaScript that dipslay movies which can be sorted by name, genere, release date, or rating. Movies can be removed from the table or added manually through code. Utilizes the fetch API to make GET and POST requests to a full fake REST API npm package(json-server).
+
+

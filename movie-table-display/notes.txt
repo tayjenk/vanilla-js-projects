@@ -1,0 +1,18 @@
+###### HTML base structure:
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      title and css scripts
+    </head>
+    <body>
+      html code & js scrips
+    </body>
+  </html>
+
+
+###### DOCTYPE
+
+Abreviation for `DOCumemt TYPE`, always associated with a `DTD - Document Type Definition`. Declaration is **required**
+
+DTD defines how docs of a certain type should be structured (ex: a button tag can contain a span tag but not a div)
