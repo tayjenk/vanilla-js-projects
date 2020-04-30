@@ -8,7 +8,7 @@
   margin: 10px;
 }
 
-.tab button.active {
+.tab.active {
   border-bottom-width: 0px;
 }
 
