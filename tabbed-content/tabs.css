@@ -1,19 +1,30 @@
 #tabbed-content {
   width: 300px;
   margin: 0 auto;
+  border: 1px solid #aaa;
+}
+
+#tabs {
+  background-color: yellowgreen;
 }
 
 .tab {
+  border: none;
   cursor: pointer;
-  margin: 10px;
+  margin: 0 10px 0px 2px;
+  background-color: yellowgreen;
+  height: 40px;
+}
+.tab:focus {
+  outline: white none 0;
 }
 
 .tab.active {
-  border-bottom-width: 0px;
+  background-color: white;
+  width: 100px;
 }
 
 .content {
-  border: 1px solid lightgray;
   padding: 50px 0;
   text-align: center;
   display: none;
