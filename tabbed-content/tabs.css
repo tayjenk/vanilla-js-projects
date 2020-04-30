@@ -1,0 +1,21 @@
+#tabbed-content {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.tab {
+  cursor: pointer;
+  margin: 10px;
+}
+
+.tab button.active {
+  border-bottom-width: 0px;
+}
+
+.content {
+  border: 1px solid lightgray;
+  padding: 50px 0;
+  text-align: center;
+  display: none;
+}
+
