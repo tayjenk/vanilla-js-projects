@@ -10,9 +10,65 @@
     </body>
   </html>
 
+Putting <link> tags in the head is proper specification for an optimized website.
+When a page loads, HTML and CSS are read at the same time.
+HTML creates the DOM
+CSS creates the CSS Object Model
+
+Place <script> </script> tags before the closing </body> tag. SCRIPT tags block HTML parsing while they are being read. Placement at the bottom allows for HTML to be parsed and displayed first. Ensures code that manipulates the DOM will not throw errors and halt the script if read before HTML.
+Also SCRIPT tag can go in the <head> if used with the defer attribute. <script defer> </script> Same as running script after HTML.
+
+<script></script> HTML parsing is blocked, script is fetched and run immediately
+<script async> </script> script is fetched the same time as HTML. Use if script is independent of any other scripts.
+<script defer></script> script fetched same with HTML, executed when HTML is finished. Same as placing script before the </body> tag.
 
 ###### DOCTYPE
 
 Abreviation for `DOCumemt TYPE`, always associated with a `DTD - Document Type Definition`. Declaration is **required**
 
-DTD defines how docs of a certain type should be structured (ex: a button tag can contain a span tag but not a div)
+DTD defines how docs of a certain type should be structured (ex: a button tag can contain a span tag but not a div) and a DOCTYPE declares what DTD the doc will follow...
+
+###### XMLHttpRequest
+Object used to interact w/ servers.
+Retrieve data from a URL w/o a full page refresh asynchronously
+
+const request = new XMLHttpRequest()
+
+request.open(
+  "GET",
+  "http://localhost:3000/movies",
+  true
+)
+
+request.onload = function() {
+  const data = JSON.parse(this.response)
+  ....create table head and body here
+}
+
+request.send();
+
+###### Fetch API
+Replaces XMLHttpRquest, unsupported by IE but polyfill can be used for such browsers.
+Fetch uses Promises, avoiding use of callbacks.
+
+async function() {
+    const response = await fetch("http://localhost:3000/movies", {
+      method: "POST",
+      body: JSON.stringify([obj])
+      headers: {
+        "content-Type":"application/json" --> alternatives avail.
+      }
+    })
+    const data = await response.json()
+    return data
+}
+
+OR
+
+fetch('https://api.github.com/users/swapnilbangare')
+    .then(response => response.json();)
+    .then(data => console.log(data))
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
+
