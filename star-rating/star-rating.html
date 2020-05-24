@@ -2,19 +2,35 @@
 <html>
   <head>
     <style>
+      li {
+        list-style: none;
+        display: inline-block;
+      }
       .star {
-        background-color: lightgray;
+        width: 60px;
+        height: 60px;
+        background: url(https://upload.wikimedia.org/wikipedia/commons/e/e7/Empty_Star.svg);
+      }
+      .star:hover {
+        background: url(https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg);
       }
     </style>
   </head>
   <body>
     <main id="stars">
-      <input class="star" type="radio" value="1"></input>
-      <!-- <label for="star1"></label> -->
+      <ul id="navlist">
+        <li class = "star"><a href="#"></a></li>
+        <li class = "star"><a href="#"></a></li>
+        <li class = "star"><a href="#"></a></li>
+        <li class = "star"><a href="#"></a></li>
+        <li class = "star"><a href="#"></a></li>
+    </ul>
+      <!-- <input class="star" type="radio" value="1"></input>
+      <label for="star1"></label>
       <input class="star" type="radio" value="2"></input>
       <input class="star" type="radio" value="3"></input>
       <input class="star" type="radio" value="4"></input>
-      <input class="star" type="radio" value="5"></input>
+      <input class="star" type="radio" value="5"></input> -->
     </main>
     <script>
 
