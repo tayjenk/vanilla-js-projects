@@ -19,3 +19,5 @@ Features a basic HTML table created through JavaScript that dipslay movies which
 **Star Rating:** </br>
 Simple star rating component using vanilla JavaScript, CSS, and HTML, building .svg stars based on input value. When a star is hovered over, the current star and previous stars "light-up" and saves a rating when clicked.
 
+## Notes:
+Could these features be used in multiple places? Should I store this feature and its functionality in a class object in order to reduce repetition? Forms, rating system, and organized tables could be used in multiple area of an application. Creating these in class objects would make these this features reusable.
