@@ -11,28 +11,62 @@
         height: 60px;
         background: url(https://upload.wikimedia.org/wikipedia/commons/e/e7/Empty_Star.svg);
       }
-      .star:hover {
+      .star.active {
         background: url(https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg);
       }
     </style>
   </head>
   <body>
-    <main id="stars">
-      <ul id="navlist">
-        <li class = "star"><a href="#"></a></li>
-        <li class = "star"><a href="#"></a></li>
-        <li class = "star"><a href="#"></a></li>
-        <li class = "star"><a href="#"></a></li>
-        <li class = "star"><a href="#"></a></li>
-    </ul>
-      <!-- <input class="star" type="radio" value="1"></input>
-      <label for="star1"></label>
-      <input class="star" type="radio" value="2"></input>
-      <input class="star" type="radio" value="3"></input>
-      <input class="star" type="radio" value="4"></input>
-      <input class="star" type="radio" value="5"></input> -->
-    </main>
+      <ul id="stars">
+        <!-- <li class = "star" value="1"><a href="#"></a></li>
+        <li class = "star" value="2"><a href="#"></a></li>
+        <li class = "star" value="3"><a href="#"></a></li>
+        <li class = "star" value="4"><a href="#"></a></li>
+        <li class = "star" value="5"><a href="#"></a></li> -->
+      </ul>
     <script>
+      class StarRating {
+        constructor(stars) {
+          this.stars = stars
+          this.currentRating = null
+          this.starContainer = document.querySelector("#stars")
+          this.setRating = this.setRating.bind(this)
+        }
+
+        init() {
+          //create stars with className and value and event listener for click evemt
+          for(let i = 1; i <= this.stars; i++) {
+            const star = document.createElement("li")
+            star.className = "star"
+            star.value = i
+            star.addEventListener("click", this.setRating)
+            this.starContainer.appendChild(star)
+          }
+          //re-assign this.stars to all the newly created stars
+          this.stars = document.querySelectorAll('.star')
+          //add eventlistener to the star container for mouseover events
+          this.starContainer.addEventListener("mouseover", (event) => this.activateStars(event, this.stars))
+        }
+
+        //save the current value of the clicked star and activate stars to hold place
+        setRating(event) {
+          this.currentRating = event.target.value
+          this.activateStars(event, this.stars)
+        }
+
+        //method activate stars up until the event.target star and deactivates any stars afterwards
+        activateStars(event, stars) {
+          for(let i = 0; i < stars.length; i++) {
+            if(i <= event.target.value - 1) stars[i].className += " active"
+            else stars[i].className = "star"
+          }
+        }
+      }
+
+      //create new star class that creates stars based on number of stars passed in
+      //initialize
+      const starRating = new StarRating(5)
+      starRating.init()
 
     </script>
   </body>
