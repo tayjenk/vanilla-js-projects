@@ -11,8 +11,15 @@
         height: 60px;
         background: url(https://upload.wikimedia.org/wikipedia/commons/e/e7/Empty_Star.svg);
       }
-      .star.active {
+      /* .star.active {
         background: url(https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg);
+      } */
+      .star:hover, .star:hover ~ .star {
+        background: url(https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg);
+      }
+      #stars {
+        direction: rtl;
+        width: 300px;
       }
     </style>
   </head>
@@ -27,7 +34,7 @@
     <script>
       class StarRating {
         constructor(stars) {
-          this.stars = stars
+          this.stars = stars || 5
           this.currentRating = null
           this.starContainer = document.querySelector("#stars")
           this.setRating = this.setRating.bind(this)
@@ -35,7 +42,7 @@
 
         init() {
           //create stars with className and value and event listener for click evemt
-          for(let i = 1; i <= this.stars; i++) {
+          for(let i = this.stars; i >= 1; i--) {
             const star = document.createElement("li")
             star.className = "star"
             star.value = i
@@ -44,8 +51,10 @@
           }
           //re-assign this.stars to all the newly created stars
           this.stars = document.querySelectorAll('.star')
+
           //add eventlistener to the star container for mouseover events
-          this.starContainer.addEventListener("mouseover", (event) => this.activateStars(event, this.stars))
+          // removed for css to control star lightup
+          // this.starContainer.addEventListener("mouseover", (event) => this.activateStars(event, this.stars))
         }
 
         //save the current value of the clicked star and activate stars to hold place
