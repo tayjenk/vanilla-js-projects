@@ -14,7 +14,7 @@
       /* .star.active {
         background: url(https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg);
       } */
-      .star:hover, .star:hover ~ .star {
+      .star:hover, .star:hover ~ .star, .active {
         background: url(https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg);
       }
       #stars {
@@ -61,12 +61,13 @@
         setRating(event) {
           this.currentRating = event.target.value
           this.activateStars(event, this.stars)
+          console.log(this.currentRating)
         }
 
         //method activate stars up until the event.target star and deactivates any stars afterwards
         activateStars(event, stars) {
-          for(let i = 0; i < stars.length; i++) {
-            if(i <= event.target.value - 1) stars[i].className += " active"
+          for(let i = stars.length - 1; i >= stars.length - event.target.value; i--) {
+            if(i >= stars.length - event.target.value) stars[i].className += " active"
             else stars[i].className = "star"
           }
         }
