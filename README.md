@@ -7,13 +7,15 @@ All projects focus heavily on JavaScript functionality and Object-Oriented progr
 
 ## Projects
 
-Handling HTML Forms: </br>
+**Handling HTML Forms:** </br>
 Created a basic "Contact Me" form in HTML, using JS functionality to extract input data and ouput a string object of form data.
 
-Basic Calulator: </br>
+**Basic Calulator:** </br>
 Simple calculator that supports add, delete, multiply, and divide operations. Calculator supports decimals and can reset current state.
 
-Movie Table Display: </br>
+**Movie Table Display:** </br>
 Features a basic HTML table created through JavaScript that dipslay movies which can be sorted by name, genere, release date, or rating. Movies can be removed from the table or added manually through code. Utilizes the fetch API to make GET and POST requests to a full fake REST API npm package(json-server).
 
+**Star Rating:** </br>
+Simple star rating component using vanilla JavaScript, CSS, and HTML, building .svg stars based on input value. When a star is hovered over, the current star and previous stars "light-up" and saves a rating when clicked.
 
