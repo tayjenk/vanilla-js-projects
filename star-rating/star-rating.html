@@ -66,9 +66,10 @@
 
         //method activate stars up until the event.target star and deactivates any stars afterwards
         activateStars(event, stars) {
-          for(let i = stars.length - 1; i >= stars.length - event.target.value; i--) {
+          for(let i = stars.length - 1; i >= 0; i--) {
             if(i >= stars.length - event.target.value) stars[i].className += " active"
             else stars[i].className = "star"
+            console.log({i}, stars[i].className)
           }
         }
       }
