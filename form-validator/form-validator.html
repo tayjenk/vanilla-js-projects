@@ -5,7 +5,32 @@
     <link rel="stylesheet" type="text/css" href="form-validator.css">
   </head>
   <body>
-
+    <main class="container">
+      <form id="form">
+        <h2>Register With Us</h2>
+        <div class="form-control">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter Username">
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Enter Email">
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter Password">
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <label for="passwordConfrim">Confirm Passwordd</label>
+          <input type="text" id="passwordConfrim" placeholder="Enter Password Again">
+          <small>Error Message</small>
+        </div>
+        <button>Submit</button>
+      </form>
+    </main>
     <script src="form-validator.js"></script>
   </body>
 </html>
