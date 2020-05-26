@@ -10,6 +10,9 @@ All projects focus heavily on JavaScript functionality and Object-Oriented progr
 **Handling HTML Forms:** </br>
 Created a basic "Contact Me" form in HTML, using JS functionality to extract input data and ouput a string object of form data.
 
+**Form Validator:** </br>
+Form validator taking user inputs, validating each and displaying errors when necessary.
+
 **Basic Calulator:** </br>
 Simple calculator that supports add, delete, multiply, and divide operations. Calculator supports decimals and can reset current state.
 
