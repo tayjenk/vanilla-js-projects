@@ -2,30 +2,34 @@
 <html>
   <head>
     <title>JS Form Validator</title>
-    <link rel="stylesheet" type="text/css" href="form-validator.css">
+    <link rel="stylesheet" type="text/css" href="form-validator.css" />
   </head>
   <body>
     <main id="container">
-      <form id="form">
+      <form id="form" name="register-form">
         <h2>Register With Us</h2>
         <div class="form-control">
           <label for="username">Username</label>
-          <input type="text" id="username" placeholder="Enter Username">
-          <small>Error Message</small>
+          <input type="text" id="username" placeholder="Enter Username" />
+          <small>Error message</small>
         </div>
         <div class="form-control">
           <label for="email">Email</label>
-          <input type="text" id="email" placeholder="Enter Email">
-          <small>Error Message</small>
+          <input type="text" id="email" placeholder="Enter Email" />
+          <small>Error message</small>
         </div>
         <div class="form-control">
           <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter Password">
-          <small>Error Message</small>
+          <input type="password" id="password" placeholder="Enter Password" />
+          <small>Error message</small>
         </div>
         <div class="form-control">
-          <label for="passwordConfrim">Confirm Passwordd</label>
-          <input type="text" id="passwordConfrim" placeholder="Enter Password Again">
+          <label for="passwordConfirm">Confirm Password</label>
+          <input
+            type="password"
+            id="passwordConfirm"
+            placeholder="Enter Password Again"
+          />
           <small>Error Message</small>
         </div>
         <button>Submit</button>
