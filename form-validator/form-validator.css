@@ -79,6 +79,10 @@ h2 {
   left: 0;
 }
 
+.form-control.error small {
+  visibility: visible;
+}
+
 #container {
   background-color: #f9fafb;
   border-radius: 5px;
