@@ -73,4 +73,13 @@ h2 {
   display: none;
 }
 
+#container {
+  background-color: #f9fafb;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0,0,0, 0.3);
+  width: 500px;
+}
 
+#form {
+  padding: 20px 30px 40px;
+}
