@@ -1,0 +1,39 @@
+/* NOTES:
+
+ box-shadow values:
+  h-offset (horizontal offset) *REQUIRED*
+    positive val --> shadow on right side
+    negative val -->  shadow on right
+  v-offset (vertical offset) *REQUIRED*
+    positive --> shadow below box
+    negative --> shadow above box
+  blur (blur radius)
+    higher value increases shadow blur
+  spread
+    positive value increases size of shadow
+    negative value decreases
+
+  rgba --> a = alpha --> controls opacity
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+/* css error color variable */
+:root {
+  --error: #e74c3e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
