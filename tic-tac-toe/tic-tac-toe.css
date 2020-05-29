@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+#gameboard {
+  width: 500px;
+  height: 500px;
+  box-shadow: 8px 16px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 50px auto;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+}
+
+.square {
+  border: 1px solid #A7A2A9;
+}
