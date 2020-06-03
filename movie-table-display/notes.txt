@@ -18,9 +18,11 @@ CSS creates the CSS Object Model
 Place <script> </script> tags before the closing </body> tag. SCRIPT tags block HTML parsing while they are being read. Placement at the bottom allows for HTML to be parsed and displayed first. Ensures code that manipulates the DOM will not throw errors and halt the script if read before HTML.
 Also SCRIPT tag can go in the <head> if used with the defer attribute. <script defer> </script> Same as running script after HTML.
 
-<script></script> HTML parsing is blocked, script is fetched and run immediately
-<script async> </script> script is fetched the same time as HTML. Use if script is independent of any other scripts.
-<script defer></script> script fetched same with HTML, executed when HTML is finished. Same as placing script before the </body> tag.
+[SCRIPT VS DEFER VS ASYNC] --> refers to execution, script is fetched when it hits the <script> tag added attribute determines execution
+<script></script> HTML parsing is blocked/paused, script is fetched and executed immediately. Placed at the end of the body. If the script has errors or takes longer to run, the rest of the HTML will be delayed if placed in the head
+[ASYNC VS DEFER] --> if both are specified, ASYNC takes precedence on newer browsers, DEFER will take over if ASYNC is not supported
+<script async> </script> script is fetched the same time as HTML, when it is ready, HTML parsing is paused, script is executed and then HTML resumes afterwards (think of async/await action, executed when available). Use if script is independent of any other scripts.
+<script defer></script> script fetched same with HTML, executed after HTML is finished. Same as placing script before the </body> tag except it finishes earlier since script has already been fetched/download
 
 ###### DOCTYPE
 
