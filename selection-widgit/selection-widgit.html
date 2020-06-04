@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #frame {
+        width: 500px;
+        height: 500px;
+        box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      #selection-container {
+        border: 0.5px solid darkgrey;
+        height: 40px;
+        margin: 20px 20px 40px;
+        padding: 5px;
+      }
+      #selection-container li {
+        display: inline-block;
+        margin: 5px;
+      }
+      #selection-container li button {
+        border: none;
+        border-radius: 3px;
+      }
+      #user-input {
+        width: 250px;
+        margin: 0 auto;
+      }
+      #user-input label {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      #input {
+        border: none;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+        height: 30px;
+        width: 250px;
+        text-align: center;
+      }
+      #options-container {
+        width: 250px;
+        margin: 20px auto;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+      li:hover {
+        color: darkgray;
+      }
+      li.selected {
+        color: darkgray;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="frame">
+      <ul id="selection-container"></ul>
+      <main id="user-input">
+        <label for="input">Search for a tag:</label>
+        <input id="input" type="text" value="" />
+      </main>
+      <ul id="options-container"></ul>
+    </div>
+    <script>
+      class SelectionWidgit {
+        constructor(tags) {
+          this.tags = tags
+          this.selectedTags = new Set()
+          this.checkTags = this.checkTags.bind(this)
+        }
+
+        // reset the options container if input is an empty string
+        // find tags containing/matching input text
+        checkTags(e) {
+          optionsContainer.textContent = ""
+          const inputText = e.target.value
+          if (inputText) {
+            const options = this.tags.filter((tag) =>
+              tag.toLowerCase().includes(inputText)
+            )
+            this.createListItems(options, optionsContainer)
+          }
+        }
+
+        // create li elements for given list of tags
+        // strikethrough tags previously selected
+        // append tags to given container
+        createListItems(options, container) {
+          options.forEach((tag) => {
+            const suggestion = document.createElement("li")
+            if(container.id === "selection-container") {
+              const liBttn = document.createElement("button")
+              liBttn.className = "selectedTag"
+              liBttn.value = tag
+              liBttn.textContent = `${tag} x`
+              suggestion.appendChild(liBttn)
+            }
+            else if(container.id === "options-container") {
+              suggestion.className = this.selectedTags.has(tag)
+                ? "tag selected"
+                : "tag"
+                suggestion.textContent = tag
+            }
+            container.appendChild(suggestion)
+          })
+        }
+
+        // add selected tag to selectedTags set and change className
+        // append selected tag to the selection container
+        addSelection(e) {
+          if (e.target.className === "tag") {
+            this.selectedTags.add(e.target.textContent)
+            e.target.classList.add("selected")
+            this.createListItems([e.target.textContent], selectionContainer)
+          }
+        }
+
+        // remove a tag from the selection container
+        // adjust className for removed tag
+        removeSelection(e) {
+          if(e.target.className === "selectedTag") {
+            const listItem = e.target.parentElement
+            const listParent = listItem.parentElement
+            listParent.removeChild(listItem)
+            this.selectedTags.delete(e.target.value)
+            const selectedOptions = optionsContainer.querySelectorAll(".selected")
+            const deselect = Array.from(selectedOptions).filter(option => option.textContent === e.target.value)[0]
+            deselect.classList.remove("selected")
+          }
+        }
+      }
+
+      const widgit = new SelectionWidgit([
+        "Beauty",
+        "Books",
+        "Clothing",
+        "Electronics",
+        "Food",
+        "Tools",
+      ])
+      const selectionContainer = document.querySelector("#selection-container")
+      const optionsContainer = document.querySelector("#options-container")
+      const userInput = document.querySelector("input")
+
+      selectionContainer.addEventListener("click", event => widgit.removeSelection(event))
+      optionsContainer.addEventListener("click", event => widgit.addSelection(event))
+      userInput.addEventListener("input", event => widgit.checkTags(event))
+    </script>
+  </body>
+</html>
